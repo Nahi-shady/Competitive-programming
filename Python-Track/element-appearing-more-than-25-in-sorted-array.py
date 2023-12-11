@@ -1,8 +1,5 @@
 class Solution:
     def findSpecialInteger(self, arr: List[int]) -> int:
-        if len(arr) <= 2:
-            return arr[0]
-
         count = 0
         quarter = 0.25*len(arr)
         same_number = arr[0]
@@ -15,5 +12,3 @@ class Solution:
             else:
                 count = 1
                 same_number = arr[i]
-        
-        return arr[i]
