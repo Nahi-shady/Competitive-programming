@@ -13,9 +13,9 @@ class Solution:
             first = min(i, first)
             mins.append(first)
 
-        mins[0] = float('inf')
-        maxs[-1] = -float('inf')
-        print(mins, maxs)
+        # mins[0] = float('inf')
+        # maxs[-1] = -float('inf')
+
         for i in range(len(nums)):
             if mins[i] < nums[i] < maxs[i]:
                 return True
