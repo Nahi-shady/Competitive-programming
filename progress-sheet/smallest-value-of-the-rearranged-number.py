@@ -1,12 +1,9 @@
 class Solution:
     def smallestNumber(self, num: int) -> int:
+        
+        store = sorted(str(num))
         if num < 0:
-            store = list(map(str, str(num)[1:]))
-        else:
-            store = list(map(str, str(num)))
-        store.sort()
-        if num < 0:
-            return -int(''.join(store)[::-1])
+            return -int(''.join(store[1:])[::-1])
 
         if store[0] == '0':
             count = 0
