@@ -1,11 +1,19 @@
 class Solution:
     def maxOperations(self, nums: List[int], k: int) -> int:
-        res, d = 0, Counter(nums)
-        for val1, cnt in d.items():
-            val2 = k - val1
-            if val2 < val1 or val2 not in d: 
-                continue 
-                
-            res += min(cnt, d[val2]) if val1 != val2 else cnt//2
-        
-        return res
+        n = len(nums)
+        nums.sort()
+        ans = 0
+        l = 0
+        r = n - 1
+        while l < r:
+            cur_sum = nums[l] + nums[r]
+            if cur_sum == k:
+                ans += 1
+                l += 1
+                r -= 1
+            elif cur_sum < k:
+                l += 1
+            else:
+                r -= 1
+    
+        return ans
