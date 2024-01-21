@@ -6,7 +6,8 @@ class Solution:
         for start, end in requests:
             prefix[start] += 1
             prefix[end+1] -= 1 
-        prefix = list(accumulate(prefix))[:-1]
+        prefix = list(accumulate(prefix))
+
         nums.sort(reverse=True)
         prefix.sort(reverse=True)
         ans = 0
