@@ -8,20 +8,18 @@ class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         stack = []
         ans = 0
-        def helper(root):
+        def helper(root, val):
             nonlocal ans
             if not root:
-                return
-            stack.append(str(root.val))
-            helper(root.left)
-            helper(root.right)
-
+                return 
             if not root.left and not root.right:
-                ans += int(''.join(stack))
-                stack.pop()
-                return
-            if stack[-1] == str(root.val):
-                stack.pop()
+                ans += int(val) + root.val
+                print(ans, val)
+                return 
+            temp = str(int(val) + root.val) + '0'
+            helper(root.left,  temp)
+            helper(root.right, temp)
+            
 
-        helper(root)
+        helper(root, '0')
         return ans
